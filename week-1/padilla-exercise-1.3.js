@@ -18,12 +18,12 @@ console.log(parsedURL.protocol);
 // logging the host of the parsedUrl - www.angelpadilla.com
 console.log(parsedURL.host);
 
-// logging the query portion of the prarsedUrl - last-name=padilla
+// logging the query portion of the parsedUrl - last-name=padilla
 console.log(parsedURL.query);
 
-
 /*
-output:
+Output:
+
 https:
 www.angelpadilla.com
 last-name=padilla
