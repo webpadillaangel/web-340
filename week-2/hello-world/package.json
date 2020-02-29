@@ -1,0 +1,8 @@
+{
+    "name": "hello-world",
+    "author": "Angel Padilla",
+    "private": true,
+    "dependencies": {
+        "express": "^4.17.1"
+    }
+}
