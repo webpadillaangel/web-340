@@ -1,6 +1,6 @@
 /*
 ============================================
-; Title:  padilla-exercise-1.3.js
+; Title:  padilla-exercise-2.2.js
 ; Author: Angel Padilla
 ; Date:   29 Feb 2020
 ; Modified By: 
