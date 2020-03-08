@@ -14,3 +14,4 @@ node_modules/
 
 # mac system file
 .DS_Store
+week-3/morgan-logging/package-lock.json
