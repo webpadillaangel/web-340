@@ -7,6 +7,11 @@
 ;===========================================
 */
 
+// Importing padilla-header file
+var header = require("../../padilla-header");
+// logging header
+console.log(header.display("Angel", "Padilla", "Exercise 3.3"));
+
 var express = require("express");
 var http = require("http");
 var path = require("path");
