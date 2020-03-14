@@ -5,7 +5,7 @@
 ; Date:   08 March 2020
 ; Modified By: Angel Padilla
 ; Description: Base server configurations for
-;              a fully working Express application.
+;              a fully working Express application. 
 ;===========================================
 */
 
