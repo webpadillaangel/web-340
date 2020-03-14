@@ -3,7 +3,7 @@
 ; Title:  padilla-exercise-4.2.js
 ; Author: Professor Krasso
 ; Date:   08 March 2020
-; Modified Angel Padilla
+; Modified By: Angel Padilla
 ; Description: Create simple json get request. 
 ;===========================================
 */
