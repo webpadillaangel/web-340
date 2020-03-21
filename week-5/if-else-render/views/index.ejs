@@ -33,19 +33,17 @@
       <h2>Names List</h2>
 
       <!-- if -->
-      <% if (names.length > 0) { %>
+      <% if (names.length > 0) { %> <% for (var k = 0; k < names.length; k++) {
+      %>
+      <div class="alert alert-success" role="alert">
+        <strong><%= names[k] %></strong>
+      </div>
 
-        <% for (var k = 0; k < names.length; k++) { %>
-        <div class="alert alert-success" role="alert">
-          <strong><%= names[k] %></strong>
-        </div>
-
-        <% } %>
-        <!-- end for loop -->
+      <% } %>
+      <!-- end for loop -->
 
       <% } %>
       <!-- end of if -->
-
     </div>
   </body>
 </html>
