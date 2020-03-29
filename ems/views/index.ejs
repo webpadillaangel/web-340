@@ -1,22 +1,24 @@
-<!DOCTYPE html>
-<html lang="en">
-  <% include header %>
+<% include header %>
 
-  <body>
-    <% include navbar %>
+<body>
+  <% include navbar %>
 
-    <div role="main" class="container height-100">
-      
-      <div class="wrapper mt-5">
-        <div class="jumbotron jumbotron-fluid">
-          <div class="container">
-            <h1 class="display-4">Welcome</h1>
-            <p class="lead">This is the beginning of a milestone.</p>
-          </div>
-        </div>
+  <div class="container landing-page">
+    <div class="row center-content">
+      <div class="col-lg-12 text-center">
+        <h1>Welcome to the EMS landing page.</h1>
+        <hr />
+        <p class="lead">This is the beginning of many wonderful milestone!</p>
+        <p>
+          - Below is an example of our data generated tables -
+        </p>
       </div>
     </div>
 
-    <% include footer %> <% include scripts %>
-  </body>
-</html>
+    <div class="row center-content">
+      <% include list %>
+    </div>
+  </div>
+
+  <% include footer %> <% include scripts %>
+</body>
