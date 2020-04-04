@@ -23,6 +23,9 @@ app.set("views", path.resolve(__dirname, "views"));
 app.set("view engine", "ejs");
 app.use(logger("short"));
 
+// serving up the static css file
+app.use(express.static(path.join(__dirname, 'assets')));
+
 var employees = [
   {
     firstName: "Angel",
@@ -65,6 +68,6 @@ app.get("/contact", function(request, response) {
   });
 });
 
-http.createServer(app).listen(8088, function() {
-  console.log("Application started on port 8086!");
+http.createServer(app).listen(8010, function() {
+  console.log("Application started on port 8087!");
 });

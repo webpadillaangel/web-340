@@ -1,0 +1,43 @@
+/*
+============================================
+; Title:  main.css
+; Author: Angel Padilla
+; Date:   02 April 2020
+; Modified By: Angel Padilla
+; Description: Main css to overwrite bootstraps styles and also add own styling.
+;===========================================
+*/
+
+html,
+body {
+  height: 100%;
+}
+
+.container.landing-page {
+  height: 100%;
+}
+
+.center-content {
+  position: relative;
+  top: 20%;
+}
+
+footer {
+  width: 100%;
+  bottom: 0;
+  position: fixed;
+}
+
+.nav-logo {
+  height: 30px;
+}
+
+.nav-mod a {
+  color: #6f6f6f;
+}
+
+.nav-mod .nav-item.active{
+  font-weight: 600;
+}
+
+
