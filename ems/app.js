@@ -55,19 +55,17 @@ app.get("/", function(request, response) {
 app.get("/about", function(request, response) {
   response.render("about", {
     title: "About Us",
-    pageName: "about",
-    employees: employees
+    pageName: "about"
   });
 });
 
 app.get("/contact", function(request, response) {
   response.render("contact", {
     title: "Contact Us",
-    pageName: "contact",
-    employees: employees
+    pageName: "contact"
   });
 });
 
-http.createServer(app).listen(8010, function() {
-  console.log("Application started on port 8087!");
+http.createServer(app).listen(8012, function() {
+  console.log("Application started on port 8012!");
 });
