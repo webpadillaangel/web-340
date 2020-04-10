@@ -46,9 +46,9 @@ db.once("open", function () {
   console.log("Application connected to mLab MongoDB instance");
 });
 
-let app = express();
 // set up of cross-site forgery protection
 let csrfProtection = csrf({ cookie: true });
+let app = express();
 
 // set statements
 app.set("views", path.resolve(__dirname, "views"));
@@ -112,7 +112,7 @@ app.get("/new", function (req, res) {
 
 // posting url where form requests get processed.
 app.post("/process", function (req, res) {
-  // console.log(request.body.firstName);
+  console.log(request.body.firstName);
   if (!req.body.firstName && !req.body.lastName) {
     res.status(400).send("Entries must have a first and last name");
     return;
