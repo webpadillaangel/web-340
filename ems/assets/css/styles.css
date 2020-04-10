@@ -17,7 +17,7 @@ footer {
   position: fixed;
   bottom: 0;
   width: 100%;
-  padding-top: 1rem;  
+  padding-top: 1rem;
   height: 3.5rem;
   background-color: #fff;
   margin-top: 1rem !important;
@@ -78,4 +78,21 @@ nav {
 .ems-color-main {
   color: #51c9fb;
   text-shadow: -2px 0 #fff;
+}
+
+.ems-bg-color {
+  background-color: #51c9fb !important;
+}
+
+.form-wrapper {
+  font-size: 1.25rem;
+  font-weight: 300;
+  text-align: center;
+}
+
+.employee-form {
+  width: 50%;
+  border: solid thin #ccc;
+  padding: 1.25rem;
+  display: inline-block;
 }
