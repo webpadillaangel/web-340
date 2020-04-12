@@ -41,7 +41,7 @@
             form.classList.add('was-validated');
           }, false);
           // Added keyup listener on the validation
-          form.addEventListener('keyup', function(event) {
+          form.addEventListener('focusout', function(event) {
             if (form.checkValidity() === false) {
               event.preventDefault();
               event.stopPropagation();
