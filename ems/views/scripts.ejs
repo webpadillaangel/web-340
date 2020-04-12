@@ -1,5 +1,20 @@
 
-
+<!-- Scripts -->
+<script
+  src="https://code.jquery.com/jquery-3.1.1.slim.min.js"
+  integrity="sha384-A7FZj7v+d/sdmMqp/nOQwliLvUsJfDHW+k9Omg/a/EheAdgtzNs3hpfag6Ed950n"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://cdnjs.cloudflare.com/ajax/libs/tether/1.4.0/js/tether.min.js"
+  integrity="sha384-DztdAPBWPRXSA/3eYEEUWrWCy7G5KFbe8fFjk5JAIxUYHKkDx6Qin1DkWx51bBrb"
+  crossorigin="anonymous"
+></script>
+<script
+  src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-alpha.6/js/bootstrap.min.js"
+  integrity="sha384-vBWWzlZJ8ea9aCX4pEW3rVHjgjt7zpkNpZk+02D9phzyeVkE+jo0ieGizqPLForn"
+  crossorigin="anonymous"
+></script>
 
 <script>
 /*!
@@ -7,6 +22,7 @@
   * Bootstrap alert.js v4.3.1 (https://getbootstrap.com/)
   * Copyright 2011-2019 The Bootstrap Authors (https://github.com/twbs/bootstrap/graphs/contributors)
   * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
+  * Modified By: Angel Padilla
   */
 
     (function() {
@@ -24,8 +40,16 @@
             }
             form.classList.add('was-validated');
           }, false);
+          // Added keyup listener on the validation
+          form.addEventListener('keyup', function(event) {
+            if (form.checkValidity() === false) {
+              event.preventDefault();
+              event.stopPropagation();
+            }
+            form.classList.add('was-validated');
+          }, false);          
         });
       }, false);
     })();
-    
+
 </script>

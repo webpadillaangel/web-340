@@ -75,13 +75,23 @@ nav {
   background-color: rgba(41, 39, 34, 0.5);
 }
 
+.hr-50 {
+  width: 50%;
+  background-color: #fff;
+}
+
 .ems-color-main {
   color: #51c9fb;
-  text-shadow: -2px 0 #fff;
 }
 
 .ems-bg-color {
   background-color: #51c9fb !important;
+  color: #fff;
+}
+
+a.btn:hover {
+  color: #fff !important;
+  background-color: #1187b8 !important;
 }
 
 .form-wrapper {
@@ -95,4 +105,9 @@ nav {
   border: solid thin #ccc;
   padding: 1.25rem;
   display: inline-block;
+}
+
+.valid-feedback,
+.invalid-feedback {
+  text-align: left;
 }

@@ -17,28 +17,27 @@ console.log(header.display("Angel", "Padilla", "Milestone 3 - ems"));
 
 const express = require("express");
 const http = require("http");
-const mongoose = require("mongoose");
+const path = require("path");
 const logger = require("morgan");
 const helmet = require("helmet");
-const path = require("path");
 const bodyParser = require("body-parser");
 const cookieParser = require("cookie-parser");
 const csrf = require("csurf");
-
-var Employee = require("./models/employee");
+const mongoose = require("mongoose");
+const Employee = require("./models/employee");
 
 // mLab connection
-
 var mongoDB =
   "mongodb+srv://aapadilla:aapadilla1@buwebdev-cluster-1-lmhnx.mongodb.net/test?retryWrites=true&w=majority";
 
 mongoose.connect(mongoDB, {
   useNewUrlParser: true,
+  useUnifiedTopology: true
 });
 
 mongoose.Promise = global.Promise;
 
-var db = mongoose.connection;
+const db = mongoose.connection;
 
 db.on("error", console.error.bind(console, "MongoDB connection error: "));
 
@@ -56,12 +55,14 @@ app.set("view engine", "ejs");
 
 // use statements - logging, body parser (encoding urls), XSS, and cross site forgery
 app.use(logger("short"));
-bodyParser.urlencoded({
-  extended: true,
-});
+app.use(
+  bodyParser.urlencoded({
+    extended: true
+  })
+);
 app.use(cookieParser());
-app.use(helmet.xssFilter());
 app.use(csrfProtection);
+app.use(helmet.xssFilter());
 
 // actual usage for Cross-Site Forgery protection by using the token.
 app.use(function (req, res, next) {
@@ -71,18 +72,13 @@ app.use(function (req, res, next) {
   next();
 });
 
-var employee = new Employee({
-  firstName: "Angel",
-  lastName: "Padilla",
-});
-
 // serving up the assets directory with static files (css, images)
 app.use(express.static(path.join(__dirname, "assets")));
 
 app.get("/", function (request, response) {
   response.render("index", {
     title: "Home page",
-    pageName: "home",
+    pageName: "home"
   });
 });
 
@@ -90,7 +86,7 @@ app.get("/", function (request, response) {
 app.get("/about", function (request, response) {
   response.render("about", {
     title: "About Us",
-    pageName: "about",
+    pageName: "about"
   });
 });
 
@@ -98,7 +94,7 @@ app.get("/about", function (request, response) {
 app.get("/contact", function (request, response) {
   response.render("contact", {
     title: "Contact Us",
-    pageName: "contact",
+    pageName: "contact"
   });
 });
 
@@ -106,13 +102,26 @@ app.get("/contact", function (request, response) {
 app.get("/new", function (req, res) {
   res.render("new", {
     title: "New Employee",
-    pageName: "new",
+    pageName: "new"
+  });
+});
+
+app.get("/list", function(req, res) {
+  Employee.find({}, function(error, employees) {
+     if (error) throw error;     
+     res.render("list", {
+         title: "Employee List",
+         pageName: "list",
+         employees: employees
+     });
   });
 });
 
 // posting url where form requests get processed.
 app.post("/process", function (req, res) {
-  console.log(request.body.firstName);
+  
+  // console.log(req.body.firstName);
+
   if (!req.body.firstName && !req.body.lastName) {
     res.status(400).send("Entries must have a first and last name");
     return;
@@ -121,12 +130,14 @@ app.post("/process", function (req, res) {
   // get the request's form data
   const firstName = req.body.firstName;
   const lastName = req.body.lastName;
-  console.log(firstName, lastName);
+  const email = req.body.email;
+  console.log(firstName, lastName, email);
 
   // create a employee model
   let employee = new Employee({
     firstName: firstName,
     lastName: lastName,
+    email: email
   });
 
   // save
@@ -135,13 +146,13 @@ app.post("/process", function (req, res) {
       console.log(err);
       throw err;
     } else {
-      console.log(`${firstName} ${lastName} saved successfully!`);
-      res.redirect("/");
+      console.log(`${firstName} ${lastName} ${email} saved successfully!`);
+      res.redirect("/list");
     }
   });
 });
 
-// updating port to 8017
-http.createServer(app).listen(8019, function () {
-  console.log("Application started on port 8017!");
+// updating port to 8032
+http.createServer(app).listen(8032, function () {
+  console.log("Application started on port 8032!");
 });
