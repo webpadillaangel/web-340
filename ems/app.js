@@ -2,7 +2,7 @@
 ============================================
 ; Title:  app.js
 ; Author: Professor Krasso
-; Date:   28 March 2020
+; Date:   12 April 2020
 ; Modified By: Angel Padilla
 ; Description: Demonstrates everything we have covered, creating server, taking requests, responding to requests, and serving pages (by using templates/layouts)
 ;              Added MongoDB connection
@@ -13,7 +13,7 @@
 const header = require("../padilla-header");
 
 // logging header
-console.log(header.display("Angel", "Padilla", "Milestone 3 - ems"));
+console.log(header.display("Angel", "Padilla", "Milestone 4 - EMS"));
 
 const express = require("express");
 const http = require("http");
