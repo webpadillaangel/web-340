@@ -94,14 +94,8 @@ a.btn:hover {
   background-color: #1187b8 !important;
 }
 
-.form-wrapper {
-  font-size: 1.25rem;
-  font-weight: 300;
-  text-align: center;
-}
-
 .employee-form {
-  width: 50%;
+  width: 100%;
   border: solid thin #ccc;
   padding: 1.25rem;
   display: inline-block;
