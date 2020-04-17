@@ -62,7 +62,7 @@
               </div>
 
               <div class="form-group row">
-                <label for="lastName" class="col-sm-3 col-form-label"
+                <label for="email" class="col-sm-3 col-form-label"
                   >Email:
                 </label>
                 <div class="col-sm-9">
@@ -82,6 +82,24 @@
                   </div>
                 </div>
               </div>
+
+              <div class="form-group row">
+                <label for="info" class="col-sm-3 col-form-label"
+                  >Fun Info:
+                </label>
+                <div class="col-sm-9">
+                  <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="info"  required></textarea>
+                  <small id="infoHelp" class="form-text text-muted">
+                    Please provide some fun information. Example: Favorite foods, hobbies, etc..
+                  </small>
+                  <div class="invalid-feedback">
+                    Please give us something, we really want to get to know you!
+                  </div>
+                  <div class="valid-feedback">
+                    Great!
+                  </div>
+                </div>
+              </div>              
 
               <div class="form-group row">
                 <input name="_csrf" value="<%= csrfToken %>" type="hidden" />

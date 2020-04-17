@@ -107,7 +107,7 @@ app.get("/new", function (req, res) {
 });
 
 app.get("/list", function(req, res) {
-  Employee.find({}, function(error, employees) {
+  Employee.find({}, function(error, employees) {    
      if (error) throw error;     
      res.render("list", {
          title: "Employee List",
@@ -119,11 +119,9 @@ app.get("/list", function(req, res) {
 
 // posting url where form requests get processed.
 app.post("/process", function (req, res) {
-  
-  // console.log(req.body.firstName);
 
   if (!req.body.firstName && !req.body.lastName) {
-    res.status(400).send("Entries must have a first and last name");
+    res.status(400).send("Entries must have all fields filled out.");
     return;
   }
 
@@ -131,13 +129,16 @@ app.post("/process", function (req, res) {
   const firstName = req.body.firstName;
   const lastName = req.body.lastName;
   const email = req.body.email;
-  console.log(firstName, lastName, email);
+  const info = req.body.info;
+
+  console.log(firstName, lastName, email, info);
 
   // create a employee model
   let employee = new Employee({
     firstName: firstName,
     lastName: lastName,
-    email: email
+    email: email,
+    info: info
   });
 
   // save
@@ -146,13 +147,36 @@ app.post("/process", function (req, res) {
       console.log(err);
       throw err;
     } else {
-      console.log(`${firstName} ${lastName} ${email} saved successfully!`);
+      console.log(`${firstName} ${lastName} ${email} ${info} saved successfully!`);
       res.redirect("/list");
     }
   });
 });
 
+// get individual record
+app.get('/view/:empId', function(req, res) {
+  const empId = req.params['empId'];
+
+  Employee.find({'_id': empId}, function(err, employee) {
+    if (err) {
+      console.log(err);
+      throw err;
+    } else {
+      if (employee.length > 0) {
+        console.log(employee);
+        res.render('view', {
+          title: "Employee Record",
+          pageName: "employeeRecord",
+          employee: employee
+        })
+      } else {
+        res.redirect('/');
+      }
+    }
+  })
+});
+
 // updating port to 8032
-http.createServer(app).listen(8032, function () {
+http.createServer(app).listen(8104, function () {
   console.log("Application started on port 8032!");
 });
