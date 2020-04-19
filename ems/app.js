@@ -52,7 +52,7 @@ let app = express();
 // set statements
 app.set("views", path.resolve(__dirname, "views"));
 app.set("view engine", "ejs");
-app.set("port", process.env.PORT || 8080);
+app.set('port', process.env.PORT || 8080);
 
 // use statements - logging, body parser (encoding urls), XSS, and cross site forgery
 app.use(logger("short"));
@@ -178,6 +178,6 @@ app.get("/view/:empId", function (req, res) {
   });
 });
 
-http.createServer(app).listen(app.get("port"), function () {
-  console.log("Application started on port" + app.get("port"));
+http.createServer(app).listen(app.get('port'), function() {
+  console.log('Application started on port ' + app.get('port'));
 });
