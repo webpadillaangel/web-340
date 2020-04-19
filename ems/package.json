@@ -1,15 +1,21 @@
 {
-    "name": "ems",
-    "author": "Angel Padilla",
-    "private": true,
-    "dependencies": {
-        "body-parser": "^1.19.0",
-        "cookie-parser": "^1.4.5",
-        "csurf": "^1.11.0",
-        "ejs": "^2.5.7",
-        "express": "^4.17.1",
-        "helmet": "^3.22.0",
-        "mongoose": "^5.9.7",
-        "morgan": "^1.10.0"
-    }
+  "name": "ems",
+  "author": "Angel Padilla",
+  "private": true,
+  "scripts": {
+    "start": "node app.js"
+  },
+  "engines": {
+    "node": "12.10.0"
+  },
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "cookie-parser": "^1.4.5",
+    "csurf": "^1.11.0",
+    "ejs": "^2.5.7",
+    "express": "^4.17.1",
+    "helmet": "^3.22.0",
+    "mongoose": "^5.9.7",
+    "morgan": "^1.10.0"
+  }
 }

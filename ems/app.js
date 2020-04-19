@@ -32,7 +32,7 @@ var mongoDB =
 
 mongoose.connect(mongoDB, {
   useNewUrlParser: true,
-  useUnifiedTopology: true
+  useUnifiedTopology: true,
 });
 
 mongoose.Promise = global.Promise;
@@ -52,12 +52,13 @@ let app = express();
 // set statements
 app.set("views", path.resolve(__dirname, "views"));
 app.set("view engine", "ejs");
+app.set("port", process.env.PORT || 8080);
 
 // use statements - logging, body parser (encoding urls), XSS, and cross site forgery
 app.use(logger("short"));
 app.use(
   bodyParser.urlencoded({
-    extended: true
+    extended: true,
   })
 );
 app.use(cookieParser());
@@ -78,7 +79,7 @@ app.use(express.static(path.join(__dirname, "assets")));
 app.get("/", function (request, response) {
   response.render("index", {
     title: "Home page",
-    pageName: "home"
+    pageName: "home",
   });
 });
 
@@ -86,7 +87,7 @@ app.get("/", function (request, response) {
 app.get("/about", function (request, response) {
   response.render("about", {
     title: "About Us",
-    pageName: "about"
+    pageName: "about",
   });
 });
 
@@ -94,7 +95,7 @@ app.get("/about", function (request, response) {
 app.get("/contact", function (request, response) {
   response.render("contact", {
     title: "Contact Us",
-    pageName: "contact"
+    pageName: "contact",
   });
 });
 
@@ -102,24 +103,23 @@ app.get("/contact", function (request, response) {
 app.get("/new", function (req, res) {
   res.render("new", {
     title: "New Employee",
-    pageName: "new"
+    pageName: "new",
   });
 });
 
-app.get("/list", function(req, res) {
-  Employee.find({}, function(error, employees) {    
-     if (error) throw error;     
-     res.render("list", {
-         title: "Employee List",
-         pageName: "list",
-         employees: employees
-     });
+app.get("/list", function (req, res) {
+  Employee.find({}, function (error, employees) {
+    if (error) throw error;
+    res.render("list", {
+      title: "Employee List",
+      pageName: "list",
+      employees: employees,
+    });
   });
 });
 
 // posting url where form requests get processed.
 app.post("/process", function (req, res) {
-
   if (!req.body.firstName && !req.body.lastName) {
     res.status(400).send("Entries must have all fields filled out.");
     return;
@@ -138,7 +138,7 @@ app.post("/process", function (req, res) {
     firstName: firstName,
     lastName: lastName,
     email: email,
-    info: info
+    info: info,
   });
 
   // save
@@ -147,36 +147,37 @@ app.post("/process", function (req, res) {
       console.log(err);
       throw err;
     } else {
-      console.log(`${firstName} ${lastName} ${email} ${info} saved successfully!`);
+      console.log(
+        `${firstName} ${lastName} ${email} ${info} saved successfully!`
+      );
       res.redirect("/list");
     }
   });
 });
 
 // get individual record
-app.get('/view/:empId', function(req, res) {
-  const empId = req.params['empId'];
+app.get("/view/:empId", function (req, res) {
+  const empId = req.params["empId"];
 
-  Employee.find({'_id': empId}, function(err, employee) {
+  Employee.find({ _id: empId }, function (err, employee) {
     if (err) {
       console.log(err);
       throw err;
     } else {
       if (employee.length > 0) {
         console.log(employee);
-        res.render('view', {
+        res.render("view", {
           title: "Employee Record",
           pageName: "employeeRecord",
-          employee: employee
-        })
+          employee: employee,
+        });
       } else {
-        res.redirect('/');
+        res.redirect("/");
       }
     }
-  })
+  });
 });
 
-// updating port to 8032
-http.createServer(app).listen(8104, function () {
-  console.log("Application started on port 8032!");
+http.createServer(app).listen(app.get("port"), function () {
+  console.log("Application started on port" + app.get("port"));
 });
