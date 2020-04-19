@@ -131,7 +131,7 @@ app.post("/process", function (req, res) {
   const email = req.body.email;
   const info = req.body.info;
 
-  console.log(firstName, lastName, email, info);
+  //console.log(firstName, lastName, email, info);
 
   // create a employee model
   let employee = new Employee({
