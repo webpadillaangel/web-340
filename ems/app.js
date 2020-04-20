@@ -74,7 +74,7 @@ app.use(function (req, res, next) {
 });
 
 // serving up the assets directory with static files (css, images)
-app.use(express.static(path.join(__dirname, "./assets")));
+app.use(express.static(path.join(__dirname, "assets")));
 
 app.get("/", function (request, response) {
   response.render("index", {
