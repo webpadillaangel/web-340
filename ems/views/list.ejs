@@ -6,15 +6,17 @@
   <div class="container">
     <div class="row center-content">
       <div class="col-lg-12 text-left">
-        <h1 class="mt-5">Employee List</h1>
+        <h1 class="mt-4">Employee List</h1>
         <hr />
 
         <div class="col-row">
-          <div class="col-md-8 offset-md-2 mt-5 table-responsive">
-            <table class="table table-bordered table-striped">
-              <div class="d-flex flex-row-reverse add-button mb-3">
-                <a class="btn ems-bg-color align-right" href="/new"><i class="fas fa-plus"></i> &nbsp; Add New Entry</a>
+          <div class="col-md-8 offset-md-2 table-responsive">
+            <table class="table table-bordered table-striped table-sm">
+              <div class="d-flex flex-row-reverse add-button mb-3 mt-2">                
+                <a href="/new" class="btn btn-outline-primary btn-sm ems-color-main outline-btn-main"> <i class="fas fa-plus"></i> &nbsp; Add New Entry</a> &nbsp;  &nbsp;
+                <a href="/" class="btn btn-outline-primary btn-sm ems-color-main outline-btn-main"> <i class="fas fa-home"></i> Home</a>
               </div>
+
               <thead>
                 <tr>
                   <th scope="col">#</th>
@@ -32,7 +34,7 @@
                   <td><%= emp.firstName %></td>
                   <td><%= emp.lastName %></td>
                   <td><%= emp.email %></td>
-                  <td><a href="/view/<%= emp._id %>" class="btn btn-info btn-block">View</a></td>
+                  <td><a href="/view/<%= emp._id %>" class="btn btn-info btn-sm btn-block">View</a></td>
                 </tr>
                 <% }); }else{ %>
                 <td>0</td>
@@ -40,7 +42,7 @@
                 <td></td>
                 <td></td>
               </tbody>
-              <% } %>
+              <% } %>              
             </table>            
           </div>
         </div> 

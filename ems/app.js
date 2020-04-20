@@ -9,11 +9,11 @@
 ;===========================================
 */
 
-// Importing padilla-header file
-const header = require("../padilla-header");
+// Importing padilla-header file - left out for deployment
+// const header = require("../padilla-header");
 
-// logging header
-console.log(header.display("Angel", "Padilla", "Milestone 4 - EMS"));
+// logging header - left out for deployment
+// console.log(header.display("Angel", "Padilla", "Milestone 4 - EMS"));
 
 const express = require("express");
 const http = require("http");
@@ -52,7 +52,7 @@ let app = express();
 // set statements
 app.set("views", path.resolve(__dirname, "views"));
 app.set("view engine", "ejs");
-app.set('port', process.env.PORT || 8080);
+app.set('port', process.env.PORT || 8082);
 
 // use statements - logging, body parser (encoding urls), XSS, and cross site forgery
 app.use(logger("short"));
