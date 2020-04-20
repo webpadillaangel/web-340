@@ -9,11 +9,11 @@
 ;===========================================
 */
 
-// Importing padilla-header file - left out for deployment
-// const header = require("../padilla-header");
+// Importing padilla-header file - leave out for deployment
+const header = require("../padilla-header");
 
-// logging header - left out for deployment
-// console.log(header.display("Angel", "Padilla", "Milestone 4 - EMS"));
+// logging header - leave out for deployment
+console.log(header.display("Angel", "Padilla", "Milestone 4 - EMS"));
 
 const express = require("express");
 const http = require("http");
